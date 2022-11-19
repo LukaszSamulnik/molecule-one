@@ -1,0 +1,33 @@
+.app-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.input-number {
+	flex-basis: 100px;
+	margin-right: 10px;
+}
+
+.input-hint {
+	color: rgb(215, 100, 100);
+}
+
+.input-wrapper,
+.input-label,
+.input-hint,
+.canvas {
+	margin-bottom: 10px;
+}
