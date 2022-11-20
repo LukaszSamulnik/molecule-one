@@ -20,7 +20,7 @@ type Props = {
 };
 
 const NumberToCanvas = ({ numberToDraw, classname, innerRef }: Props): JSX.Element => {
-	const canvasRef = innerRef; // useRef<HTMLCanvasElement>(null);
+	const canvasRef = innerRef;
 	const canvas = canvasRef.current;
 	const context = canvas?.getContext('2d');
 
@@ -109,10 +109,8 @@ const NumberToCanvas = ({ numberToDraw, classname, innerRef }: Props): JSX.Eleme
 		drawBackground();
 	};
 
-	// initial draw
 	useEffect((): void => initialDraw(), []);
 
-	// redraw on number change
 	useEffect((): void => {
 		if (numberToDraw && validateNumberIsInRange(numberToDraw, MIN_IN_RANGE, MAX_IN_RANGE)) {
 			drawNumber();

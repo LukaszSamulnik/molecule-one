@@ -25,7 +25,7 @@ const Main = (): JSX.Element => {
 
 	const validateNumberToDraw = () =>
 		validateNumberIsInRange(numberToDraw, MIN_IN_RANGE, MAX_IN_RANGE);
-	// redraw on number change
+
 	useEffect((): void => {
 		if (numberToDraw && validateNumberToDraw()) {
 			handleDownloadHref();
@@ -35,7 +35,6 @@ const Main = (): JSX.Element => {
 	const handleInputChange = (evt: React.ChangeEvent<HTMLInputElement>): void => {
 		const value = evt.currentTarget.valueAsNumber;
 
-		// bailout/validate early and advise
 		if (!value || value < MIN_IN_RANGE || value > MAX_IN_RANGE) {
 			setHint('Please input number in given range');
 			setNumberToDraw(null);

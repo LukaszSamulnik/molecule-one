@@ -10,10 +10,10 @@ export const defaultCanvasSettings = {
 };
 
 export const flipDirections = [
-	[1, 1],
+	[1, 1], // no change
 	[-1, 1], // horizontal
 	[1, -1], // vertical
-	[-1, -1], // horizontal and vertical
+	[-1, -1], // both
 ];
 
 export const linesCoords = [
