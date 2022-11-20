@@ -6,8 +6,9 @@
 	align-items: center;
 }
 
-.form {
+.form-wrapper {
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
 }
 
@@ -17,15 +18,32 @@
 }
 
 .input-number {
-	flex-basis: 100px;
+	width: 100px;
 	margin-right: 10px;
 }
 
 .input-hint {
-	color: rgb(215, 100, 100);
+	color: #ca5050;
 }
 
-.input-wrapper,
+.canvas {
+	display: block;
+}
+
+.download {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	border-radius: 5px;
+	background-color: #000;
+	padding: 10px;
+	width: 200px;
+	margin-bottom: 40px;
+	border: 1px solid #000;
+}
+
+.form-wrapper,
+.input-number,
 .input-label,
 .input-hint,
 .canvas {
