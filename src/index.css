@@ -4,3 +4,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+#root {
+	display: flex;
+	justify-content: center;
+}
