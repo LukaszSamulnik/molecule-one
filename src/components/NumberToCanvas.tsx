@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from 'react';
-import { defaultCanvasSettings, flipDirections, linesCoords } from './settings';
-import { validateNumberIsInRange } from './utils';
+import { defaultCanvasSettings, flipDirections, linesCoords } from '../settings';
+import { validateNumberIsInRange } from '../utils';
 
 const {
 	MIN_IN_RANGE,

@@ -1,15 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './App.css';
+import { defaultCanvasSettings } from '../settings';
+import { validateNumberIsInRange } from '../utils';
+import CanvasForm from './CanvasForm';
 import DownloadButton from './DownloadButton';
-import Footer from './Footer';
-import Hint from './Hint';
 import NumberToCanvas from './NumberToCanvas';
-import { defaultCanvasSettings } from './settings';
-import { validateNumberIsInRange } from './utils';
 
 const { MIN_IN_RANGE, MAX_IN_RANGE } = defaultCanvasSettings;
 
-const App = (): JSX.Element => {
+const Main = (): JSX.Element => {
 	const [numberToDraw, setNumberToDraw] = useState<number | null>(null);
 	const [hint, setHint] = useState<string>('');
 	const [downloadHref, setDownloadHref] = useState<string>('');
@@ -50,52 +48,29 @@ const App = (): JSX.Element => {
 	const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => evt.preventDefault();
 
 	return (
-		<div className='app-container'>
-			<main>
-				<form
-					className='form-wrapper'
-					onSubmit={handleSubmit}
-				>
-					<label
-						htmlFor='input-number'
-						className='input-label'
-					>
-						Input number in range between 1 and 9999
-					</label>
+		<>
+			<CanvasForm
+				handleSubmit={handleSubmit}
+				handleInputChange={handleInputChange}
+				hint={hint}
+				min={MIN_IN_RANGE}
+				max={MAX_IN_RANGE}
+			/>
 
-					<div className='input-wrapper'>
-						<input
-							id='input-number'
-							className='input-number'
-							onChange={handleInputChange}
-							type='number'
-							min={MIN_IN_RANGE}
-							max={MAX_IN_RANGE}
-						/>
-						<Hint
-							hint={hint}
-							classname={'input-hint'}
-						/>
-					</div>
-				</form>
+			<NumberToCanvas
+				numberToDraw={numberToDraw}
+				classname={'canvas'}
+				innerRef={canvasRef}
+			/>
 
-				<NumberToCanvas
-					numberToDraw={numberToDraw}
-					classname={'canvas'}
-					innerRef={canvasRef}
+			{validateNumberToDraw() ? (
+				<DownloadButton
+					fileName={`${numberToDraw}.jpg`}
+					href={downloadHref}
 				/>
-
-				{validateNumberToDraw() ? (
-					<DownloadButton
-						fileName={`${numberToDraw}.jpg`}
-						href={downloadHref}
-					/>
-				) : null}
-			</main>
-
-			<Footer />
-		</div>
+			) : null}
+		</>
 	);
 };
 
-export default App;
+export default Main;
